@@ -23,7 +23,7 @@
 %----------------------------------------------------------------------------------------
 %	SELECT LAYOUT THEME
 %----------------------------------------------------------------------------------------
-
+\usepackage{lipsum}
 \usetheme{Madrid}
 
 %----------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
     \begin{tikzpicture}[remember picture,overlay]
         \node[anchor=north west,inner sep=0pt] at (current page.north west) {\includegraphics[width=\paperwidth]{ITMO_misc/ITMO_background.jpg}};
         % Position subtitle directly at the center
-        \node[anchor=center] at (current page.center) { 
+        \node[anchor=center] at (current page.center) {
             \begin{minipage}{\linewidth}
                 \color{white}
                 \centering
@@ -77,11 +77,12 @@
     \end{tikzpicture}
 }
 
+
 %----------------------------------------------------------------------------------------
 %	PRESENTATION INFORMATION
 %----------------------------------------------------------------------------------------
 
- \title[ITMO example]{Example ITMO presentation} % The short title in the optional parameter 
+ \title[ITMO example]{Example ITMO presentation} % The short title in the optional parameter
 
 \subtitle{Optional subtitle} % Presentation subtitle, remove this command if a subtitle isn't required
 
@@ -115,7 +116,7 @@
 
 \begin{frame}
 	\frametitle{Table of contents} % Slide title, remove this command for no title
-	
+
 	\tableofcontents % Output the table of contents (all sections on one slide)
 	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
 \end{frame}
@@ -127,20 +128,55 @@
 \section{Introduction}
 \begin{frame}
 	\frametitle{What is Lorem Ipsum?}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+    \lipsum[1][1-3]
 \end{frame}
 
 \section{Main Information}
 \subsection{History}
+\begin{frame}[t]
+	\frametitle{Top align}
+    \lipsum[2][1-3]
+\end{frame}
+
 \begin{frame}
-	\frametitle{Historical Context}
-	Cras elementum. Ut tristique pretium tellus. Sed iaculis. Curabitur vel justo vitae neque.
+	\frametitle{List}
+    \begin{itemize}
+        \item Item 1
+        \item Item 2
+        \setbeamertemplate{enumerate items}[default]
+        \begin{enumerate}
+            \item Item 1
+            \item Item 2
+        \end{enumerate}
+        \item Item 3
+    \end{itemize}
 \end{frame}
 
 \subsection{Usage}
 \begin{frame}
-	\frametitle{Where is Lorem Ipsum used?}
-	Nullam faucibus mi quis velit. Integer tempus convallis augue. Etiam facilis, enim vitae elementum laoreet, lorem sem consectetuer nunc, id elementum neque tellus at dolor. 
+    \frametitle{Image with text right}
+    \begin{tabular}{cl}
+        \begin{tabular}{c}
+            \centering
+            \includegraphics[height=4cm, width=3.5cm]{img/fig.png}
+        \end{tabular} &
+        \begin{tabular}{l}
+            \parbox{0.5\linewidth}{\lipsum[2][1-3]}
+        \end{tabular}
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Image with text left}
+    \begin{tabular}{cl}
+        \begin{tabular}{l}
+            \parbox{0.5\linewidth}{\lipsum[2][1-3]}
+        \end{tabular} &
+        \begin{tabular}{c}
+            \centering
+            \includegraphics[height=4cm, width=3.5cm]{img/fig.png}
+        \end{tabular}
+    \end{tabular}
 \end{frame}
 
 \subsection{Blocks}
@@ -149,11 +185,11 @@
     \begin{block}{This is a block}
     Here goes some text
     \end{block}
-    
+
     \begin{alertblock}{This is an alert block}
     Here goes some text
     \end{alertblock}
-    
+
     \begin{examples}{This is an example block}
     \\Here goes some text
     \end{examples}
@@ -179,4 +215,4 @@
 
 %----------------------------------------------------------------------------------------
 
-\end{document} 
+\end{document}
