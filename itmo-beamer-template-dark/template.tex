@@ -1,0 +1,202 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	11pt,
+	aspectratio=169,
+]{beamer}
+\setbeamercolor{background canvas}{bg=darkgray}
+\graphicspath{{images/}{./}}
+
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[russian]{babel} % uncomment this line if the presentation requires russian language
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{etoolbox}
+
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+
+
+\usecolortheme{dove}
+\setbeamercolor{background canvas}{bg=darkgray}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{titlelike}{fg=white}
+\setbeamercolor{frametitle}{fg=white}
+
+% Block Colors
+
+\setbeamercolor{block title}{fg=black, bg=white}
+\setbeamercolor{block body}{fg=black, bg=white}
+\setbeamercolor{block alerted title}{fg=black, bg=white}
+\setbeamercolor{block alerted body}{fg=black, bg=white}
+\setbeamercolor{block example title}{fg=black, bg=white}
+\setbeamercolor{block example body}{fg=black, bg=white}
+%----------------------------------------------------------------------------------------
+%	SELECT FONT, FONT THEME, INNER THEME
+%----------------------------------------------------------------------------------------
+
+\usefonttheme{default}
+\usepackage[default]{opensans}
+\useinnertheme{rectangles}
+
+
+%----------------------------------------------------------------------------------------
+%	SETTING ITMO LOGOS AND BACKGROUND
+%----------------------------------------------------------------------------------------
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north west,inner sep=0pt] at (current page.north west) {\includegraphics[width=\paperwidth]{ITMO_misc/ITMO_background.jpg}};
+        % Position subtitle directly at the center
+        \node[anchor=center] at (current page.center) { 
+            \begin{minipage}{\linewidth}
+                \color{white}
+                \centering
+                \fontsize{26pt}{34pt}\selectfont\inserttitle\par
+                \usebeamerfont{subtitle}\insertsubtitle\par
+                \bigskip
+            \end{minipage}
+        };
+        % Positioning for name, institution, and date at the bottom
+        \node[anchor=south] at ([yshift=0.1cm]current page.south) {
+            \begin{minipage}{\linewidth}
+                \color{white}
+                \centering
+                \usebeamerfont{author}\insertauthor\par
+                \usebeamerfont{institute}\insertinstitute\par
+                \usebeamerfont{date}\insertdate\par
+            \end{minipage}
+        };
+    \end{tikzpicture}
+}
+
+
+\setbeamertemplate{headline}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east] at (current page.north east) {\includegraphics[height=1cm]{ITMO_misc/ITMO_white.png}};
+    \end{tikzpicture}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+ \title[ITMO example]{Example ITMO presentation} % The short title in the optional parameter 
+
+\subtitle{Optional subtitle} % Presentation subtitle, remove this command if a subtitle isn't required
+
+\author[Doe]{John Doe, MSc} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute[ITMO]{ITMO University, johndoe@mail.com} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+\date[\today]{
+    Sample optional subject
+    \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+\setbeamertemplate{footline}[frame number]
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+% The table of contents outputs the sections and subsections that appear in your presentation, specified with the standard \section and \subsection commands. You may either display all sections and subsections on one slide with \tableofcontents, or display each section at a time on subsequent slides with \tableofcontents[pausesections]. The latter is useful if you want to step through each section and mention what you will discuss.
+
+\begin{frame}
+	\frametitle{Table of contents} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\begin{frame}
+	\frametitle{What is Lorem Ipsum?}
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+\end{frame}
+
+\section{Main Information}
+\subsection{History}
+\begin{frame}
+	\frametitle{Historical Context}
+	Cras elementum. Ut tristique pretium tellus. Sed iaculis. Curabitur vel justo vitae neque.
+\end{frame}
+
+\subsection{Usage}
+\begin{frame}
+	\frametitle{Where is Lorem Ipsum used?}
+	Nullam faucibus mi quis velit. Integer tempus convallis augue. Etiam facilis, enim vitae elementum laoreet, lorem sem consectetuer nunc, id elementum neque tellus at dolor. 
+\end{frame}
+
+\subsection{Blocks}
+
+\begin{frame}{Frame Title}
+    \begin{block}{This is a block}
+    Here goes some text
+    \end{block}
+    
+    \begin{alertblock}{This is an alert block}
+    Here goes some text
+    \end{alertblock}
+    
+    \begin{exampleblock}{This is an example block}
+    Here goes some text
+    \end{exampleblock}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}
+	\frametitle{Summary}
+	Nunc tincidunt ante vitae massa. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE
+%----------------------------------------------------------------------------------------
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+\setbeamertemplate{footline}[frame number]
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
