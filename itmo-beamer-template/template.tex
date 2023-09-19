@@ -30,7 +30,47 @@
 %	SELECT COLOR THEME
 %----------------------------------------------------------------------------------------
 
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
 \usecolortheme{dove}
+\newif\ifDayTheme
+\DayThemetrue % false - for night
+
+\def\DAY{DEFAULT} % for debug
+\def\ITMObackground{}
+\def\ITMOlogo{}
+
+\newcommand{\applyDAY}{
+    \def\DAY{TRUE} % for debug
+    \def\ITMObackground{ITMO_misc/ITMO_background.jpg}
+    \def\ITMOlogo{ITMO_misc/ITMO_black.png}
+}
+
+\newcommand{\applyNIGHT}{
+    \def\DAY{FALSE} % for debug
+    \def\ITMObackground{ITMO_misc/ITMO_background_dark.jpg}
+    \def\ITMOlogo{ITMO_misc/ITMO_white.png}
+
+    \setbeamercolor{background canvas}{bg=darkgray}
+    \setbeamercolor{normal text}{fg=white}
+    \setbeamercolor{structure}{fg=white}
+    \setbeamercolor{title}{fg=white}
+    \setbeamercolor{titlelike}{fg=white}
+    \setbeamercolor{frametitle}{fg=white}
+
+    % Block Colors
+
+    \setbeamercolor{block title}{fg=black, bg=white}
+    \setbeamercolor{block body}{fg=black, bg=white}
+    \setbeamercolor{block alerted title}{fg=black, bg=white}
+    \setbeamercolor{block alerted body}{fg=black, bg=white}
+    \setbeamercolor{block example title}{fg=black, bg=white}
+    \setbeamercolor{block example body}{fg=black, bg=white}
+}
+
+\ifDayTheme \applyDAY \else \applyNIGHT \fi
 
 %----------------------------------------------------------------------------------------
 %	SELECT FONT, FONT THEME, INNER THEME
